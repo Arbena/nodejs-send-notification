@@ -1,0 +1,14 @@
+{
+    "db": {
+        "path": "mongodb://localhost/test"
+        , "limit": 100
+    }
+    , "vk" : {
+        "timeout":  50
+        , "maxErrorCount": 0
+    }
+    , "template0":  "Юзер, где ты прячешься?"
+    , "template" :  "Здравствуй, %name%! Что-то тебя, %name%, давно не видели в нашей игре!"
+    , "timeInterval": 400
+
+}
