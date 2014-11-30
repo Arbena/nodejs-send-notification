@@ -7,21 +7,22 @@
  */
 
 var fs = require('fs');
+var manager = require('./lib/manager');
 
 process.on('uncaughtException', function (err){
     console.log(err);
+    process.exit(1);
 });
 
 // Получаем настройки
 var settings = JSON.parse(fs.readFileSync(__dirname + "/settings.json").toString());
-var manager = require('./lib/manager');
 
 var item = manager(settings, function(err){
-        if (err)
-            console.log(err.stack);
-        else
-            console.log('Закончили работу');
-        process.exit(err? 1: 0);
+    if (err)
+        console.log(err.stack);
+    else
+        console.log('Закончили работу');
+    process.exit(err? 1: 0);
 });
-item.start();
 console.log("Запускаем отправку уведомлений");
+item.start();
